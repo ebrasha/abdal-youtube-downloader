@@ -7,7 +7,7 @@
 ## 👀 Screenshot
 
 ![](screenshot.jpg)
-![]()
+![](https://github.com/ebrasha/abdal-youtube-downloader/blob/main/screenshot/screenshot.jpg)
 
 
  ## 💎 General purpose
@@ -41,7 +41,7 @@ To download a video from a links file, just create the desired file in the Abdal
 
 To add a channel ID to a channel, just login with your Gmail and open the YouTube, now press Ctrl + U and look for externalId, then you will see the channel ID, for example: channel_id=UCs9oYrUh4hlFGUrhpsLldqA".
 ![](help.jpg)
-![]()
+![](https://github.com/ebrasha/abdal-youtube-downloader/blob/main/screenshot/help.jpg)
 
 
 ## ❤️ Donation
