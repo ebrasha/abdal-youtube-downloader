@@ -65,9 +65,10 @@
 
 ## 🤵 برنامه نویس
 ابراهیم شفیعی (ابراشا)
-E-Mail = Prof.Shafiei@Gmail.com
 
-Telegram: https://t.me/ProfShafiei
+ایمیل = Prof.Shafiei@Gmail.com
+
+تلگرام: https://t.me/ProfShafiei
 
 ## ☠️ گزارش خطا
 
