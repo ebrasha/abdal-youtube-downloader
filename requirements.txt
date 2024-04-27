@@ -1,6 +1,6 @@
 colorama===0.4.6
 scrapetube===2.3.1
 requests===2.28.2
+pytube===15.0.0
 bs4===0.0.1
 validators===0.20.0
-pytube===15.0.0

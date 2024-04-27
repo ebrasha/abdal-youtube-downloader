@@ -41,7 +41,7 @@ class ayddownloader:
             print(Fore.YELLOW + Style.DIM + f"Working on => " + link)
             print(Style.RESET_ALL)
             youtube_obj = youtube_obj.streams.get_audio_only()
-            youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix="Abdal_", skip_existing=True)
+            youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX, skip_existing=True)
             print(Style.RESET_ALL)
             print(Fore.GREEN + Style.DIM)
             print("Download is completed successfully")
@@ -51,6 +51,7 @@ class ayddownloader:
             print(Fore.RED + Style.DIM)
             print("An error has occurred " + ex.__str__())
             print(Style.RESET_ALL)
+            pass
 
     def single_link_download(self, link: str, resolution: str) -> None:
         if not linkscrap.LinkScrap.url_validator(link):
@@ -72,7 +73,7 @@ class ayddownloader:
                 print(Fore.YELLOW + Style.DIM + f"Working on => " + link)
                 print(Style.RESET_ALL)
                 youtube_obj = youtube_obj.streams.get_by_resolution(resolution)
-            youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix="Abdal_", skip_existing=True)
+            youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX, skip_existing=True)
             print(Style.RESET_ALL)
             print(Fore.GREEN + Style.DIM)
             print("Download is completed successfully")
@@ -82,6 +83,7 @@ class ayddownloader:
             print(Fore.RED + Style.DIM)
             print("An error has occurred " + ex.__str__())
             print(Style.RESET_ALL)
+            pass
 
     def multi_link_audio_download(self, link_file: str) -> None:
 
@@ -107,7 +109,7 @@ class ayddownloader:
                 print(Fore.GREEN + Style.DIM)
                 youtube_obj = YouTube(youtube_link)
                 youtube_obj = youtube_obj.streams.get_audio_only()
-                youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix="Abdal_", skip_existing=True)
+                youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX, skip_existing=True)
                 print(Style.RESET_ALL)
                 print(Fore.GREEN + Style.DIM)
                 print("Download is completed successfully")
@@ -117,6 +119,7 @@ class ayddownloader:
             print(Fore.RED + Style.DIM)
             print("An error has occurred " + ex.__str__())
             print(Style.RESET_ALL)
+            pass
 
     def multi_link_download(self, link_file: str, resolution: str) -> None:
 
@@ -146,7 +149,7 @@ class ayddownloader:
                     youtube_obj = youtube_obj.streams.get_highest_resolution()
                 else:
                     youtube_obj = youtube_obj.streams.get_by_resolution(resolution)
-                youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix="Abdal_", skip_existing=True)
+                youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX, skip_existing=True)
                 print(Style.RESET_ALL)
                 print(Fore.GREEN + Style.DIM)
                 print("Download is completed successfully")
@@ -156,6 +159,7 @@ class ayddownloader:
             print(Fore.RED + Style.DIM)
             print("An error has occurred " + ex.__str__())
             print(Style.RESET_ALL)
+            pass
 
     def channel_scrap_link_download(self, channel_id: str, resolution: str) -> None:
         try:
@@ -197,7 +201,7 @@ class ayddownloader:
                     youtube_obj = youtube_obj.streams.get_highest_resolution()
                 else:
                     youtube_obj = youtube_obj.streams.get_by_resolution(resolution)
-                youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix="Abdal_", skip_existing=True)
+                youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX, skip_existing=True)
                 print(Style.RESET_ALL)
                 print(Fore.GREEN + Style.DIM)
                 print("Download is completed successfully")
@@ -207,3 +211,4 @@ class ayddownloader:
             print(Fore.RED + Style.DIM)
             print("An error has occurred " + ex.__str__())
             print(Style.RESET_ALL)
+            pass
