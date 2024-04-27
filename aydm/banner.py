@@ -24,7 +24,7 @@ banner = """
                                 ""    `,  _,--...___  |
                                         `/          \"""
 ===============================================================
-Welcome to Abdal Youtube Downloader Ver 5.2
+Welcome to Abdal Youtube Downloader Ver 5.3
 Programmer : Ebrahim Shafiei (EbraSha)
 Mail: Prof.Shafiei@gmail.com
 Github: https://github.com/ebrasha
