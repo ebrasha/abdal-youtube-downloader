@@ -41,7 +41,8 @@ class ayddownloader:
             print(Fore.YELLOW + Style.DIM + f"Working on => " + link)
             print(Style.RESET_ALL)
             youtube_obj = youtube_obj.streams.get_audio_only()
-            youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX, skip_existing=True)
+            youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX,
+                                 skip_existing=True)
             print(Style.RESET_ALL)
             print(Fore.GREEN + Style.DIM)
             print("Download is completed successfully")
@@ -73,7 +74,8 @@ class ayddownloader:
                 print(Fore.YELLOW + Style.DIM + f"Working on => " + link)
                 print(Style.RESET_ALL)
                 youtube_obj = youtube_obj.streams.get_by_resolution(resolution)
-            youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX, skip_existing=True)
+            youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX,
+                                 skip_existing=True)
             print(Style.RESET_ALL)
             print(Fore.GREEN + Style.DIM)
             print("Download is completed successfully")
@@ -86,40 +88,42 @@ class ayddownloader:
             pass
 
     def multi_link_audio_download(self, link_file: str) -> None:
-
-        try:
-            youtube_file_open = open(link_file, 'r')
+        with open(link_file, 'r') as youtube_file_open:
             youtube_file_reader = youtube_file_open.readlines()
             total_file_counter = len(youtube_file_reader)
             current_file_counter = 0
+
             for youtube_link in youtube_file_reader:
-                if not linkscrap.LinkScrap.url_validator(youtube_link):
-                    print(Fore.RED + Style.DIM + f"Your link is not valid  => " + youtube_link)
+                try:
+                    if not linkscrap.LinkScrap.url_validator(youtube_link):
+                        print(Fore.RED + Style.DIM + f"Your link is not valid  => " + youtube_link)
+                        print(Style.RESET_ALL)
+                        continue
+                    if linkscrap.LinkScrap.video_unavailable_checker(youtube_link):
+                        print(Fore.RED + Style.DIM + f"Video unavailable  => " + youtube_link)
+                        print(Style.RESET_ALL)
+                        continue
+
+                    print(Fore.YELLOW + Style.DIM + f"Working on => " + youtube_link)
                     print(Style.RESET_ALL)
-                if linkscrap.LinkScrap.video_unavailable_checker(youtube_link):
-                    print(Fore.RED + Style.DIM + f"Video unavailable  => " + youtube_link)
+                    current_file_counter += 1
+                    print("Statistic: [ " + str(current_file_counter) + " / " + str(total_file_counter) + "  ]")
                     print(Style.RESET_ALL)
 
-                print(Fore.YELLOW + Style.DIM + f"Working on => " + youtube_link)
-                print(Style.RESET_ALL)
-                print(Fore.BLACK + Back.WHITE + Style.DIM)
-                current_file_counter += 1
-                print("Statistic: [ " + str(current_file_counter) + " / " + str(total_file_counter) + "  ]")
-                print(Style.RESET_ALL)
-                print(Fore.GREEN + Style.DIM)
-                youtube_obj = YouTube(youtube_link)
-                youtube_obj = youtube_obj.streams.get_audio_only()
-                youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX, skip_existing=True)
-                print(Style.RESET_ALL)
-                print(Fore.GREEN + Style.DIM)
-                print("Download is completed successfully")
-                print(Style.RESET_ALL)
-        except Exception as ex:
-            print(Style.RESET_ALL)
-            print(Fore.RED + Style.DIM)
-            print("An error has occurred " + ex.__str__())
-            print(Style.RESET_ALL)
-            pass
+                    youtube_obj = YouTube(youtube_link)
+                    youtube_obj = youtube_obj.streams.get_audio_only()
+                    youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX,
+                                         skip_existing=True)
+
+                    print(Fore.GREEN + Style.DIM)
+                    print("Download is completed successfully")
+                    print(Style.RESET_ALL)
+
+                except Exception as ex:
+                    print(Style.RESET_ALL)
+                    print(Fore.RED + Style.DIM)
+                    print("An error has occurred: " + str(ex))
+                    print(Style.RESET_ALL)
 
     def multi_link_download(self, link_file: str, resolution: str) -> None:
 
@@ -149,7 +153,8 @@ class ayddownloader:
                     youtube_obj = youtube_obj.streams.get_highest_resolution()
                 else:
                     youtube_obj = youtube_obj.streams.get_by_resolution(resolution)
-                youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX, skip_existing=True)
+                youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX,
+                                     skip_existing=True)
                 print(Style.RESET_ALL)
                 print(Fore.GREEN + Style.DIM)
                 print("Download is completed successfully")
@@ -201,7 +206,8 @@ class ayddownloader:
                     youtube_obj = youtube_obj.streams.get_highest_resolution()
                 else:
                     youtube_obj = youtube_obj.streams.get_by_resolution(resolution)
-                youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX, skip_existing=True)
+                youtube_obj.download(output_path=pubvars.YOUTUBE_FILE_DIR, filename_prefix=pubvars.FILENAME_PREFIX,
+                                     skip_existing=True)
                 print(Style.RESET_ALL)
                 print(Fore.GREEN + Style.DIM)
                 print("Download is completed successfully")
